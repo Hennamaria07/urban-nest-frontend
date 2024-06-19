@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AuthLayout } from './layout'
-import { Login } from './components'
+import { AuthLayout, UserLayout } from './layout'
+import { Login, Signup } from './components'
+import { Hero } from './pages'
 
 function App() {
 
@@ -13,6 +14,20 @@ function App() {
         <Route 
         path='/login'
         element={<Login />}
+        />
+        <Route 
+        path='/signup'
+        element={<Signup />}
+        />
+      </Route>
+
+      {/* User Routes */}
+      <Route
+      element={<UserLayout />}
+      >
+        <Route 
+        path='/'
+        element={<Hero />}
         />
       </Route>
     </Routes>
