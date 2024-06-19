@@ -7,7 +7,6 @@ import { ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { Button } from '../ui/button';
 import { useDispatch, useSelector } from 'react-redux';
-// import { setAuth } from '@/redux/features/Auth/userAuth';
 import { Input } from '../ui/input';
 import { Helmet } from 'react-helmet';
 import { loginUser } from '../../redux/features/users/userSlice';
@@ -19,7 +18,7 @@ const signinSchema = yup.object({
 
 const Login = () => {
     const loading = useSelector(state => state.users.isLoading);
-    console.log(loading)
+    // console.log(loading)
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
