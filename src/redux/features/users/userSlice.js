@@ -7,10 +7,10 @@ import { Navigate, useNavigate } from "react-router-dom";
 const initialState = {
     users: [],
     user: {
-        isAuthenticated: localStorage.getItem('isAuthenticated') ? JSON.parse(localStorage.getItem("isAuthenticated")) : false,
+        isAuthenticated: localStorage.getItem('isAuthenticated') ? localStorage.getItem('isAuthenticated') === 'true' : false,
         userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null,
-        token: localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')) : null,
-        tokenExpiry: localStorage.getItem('tokenExpiry') ? JSON.parse(localStorage.getItem('tokenExpiry')) : null,
+        token: localStorage.getItem('token') ? localStorage.getItem('token') : null,
+        tokenExpiry: localStorage.getItem('tokenExpiry') ? localStorage.getItem('tokenExpiry') : null,
     },
     isLoading: false,
     isError: false,
@@ -208,7 +208,7 @@ const userSlice = createSlice({
             state.user.isAuthenticated = isAuthenticated;
             state.isLoading = false;
             state.isError = false;
-            localStorage.setItem("userInfo", data);
+            localStorage.setItem("userInfo", JSON.stringify(data));
             localStorage.setItem("token", token);
             localStorage.setItem("tokenExpiry", tokenExpiry);
             localStorage.setItem("isAuthenticated", isAuthenticated);
@@ -232,7 +232,7 @@ const userSlice = createSlice({
             state.isLoading = false;
             state.isError = false;
             localStorage.setItem("userInfo", JSON.stringify(data));
-            localStorage.setItem("token", JSON.stringify(token));
+            localStorage.setItem("token", token);
             localStorage.setItem("tokenExpiry", tokenExpiry);
             localStorage.setItem("isAuthenticated", isAuthenticated);
         });
