@@ -5,14 +5,12 @@ import * as yup from "yup"
 import toast, { Toaster } from 'react-hot-toast';
 import { ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import login from "../../assets/login.avif";
 import { Button } from '../ui/button';
-import { axiosInstance } from '../../lib/axiosInstance';
 import { useDispatch, useSelector } from 'react-redux';
 // import { setAuth } from '@/redux/features/Auth/userAuth';
 import { Input } from '../ui/input';
-import { loginUser } from '@/redux/features/users/usersCrud';
 import { Helmet } from 'react-helmet';
+import { loginUser } from '../../redux/features/users/userSlice';
 
 const signinSchema = yup.object({
     email: yup.string().email().required(),
@@ -20,7 +18,6 @@ const signinSchema = yup.object({
 });
 
 const Login = () => {
-    const tokenExpiry = useSelector(state => state.users.user.tokenExpiry);
     const loading = useSelector(state => state.users.isLoading);
     console.log(loading)
     const dispatch = useDispatch();
@@ -81,7 +78,6 @@ const Login = () => {
                             <div className="space-y-5">
                                 <div className="mt-2">
                                     <Input
-                                        className="flex h-10 w-full rounded-md border border-orange-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
                                         type="email"
                                         placeholder="Email"
                                         id="email"
@@ -107,7 +103,6 @@ const Login = () => {
                                     <div className="mt-2">
                                         <div className='flex relative '>
                                             <Input
-                                                className="flex h-10 w-full rounded-md border border-orange-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
                                                 type={visiable ? "text" : "password"}
                                                 placeholder="Password"
                                                 {...register('password')}
@@ -138,7 +133,7 @@ const Login = () => {
                 <div className="lg:inline hidden">
                     <img
                         className="mx-auto h-full w-full object-cover"
-                        src={login}
+                        src="https://res.cloudinary.com/freestyle07/image/upload/v1718777219/login_wax60k.avif"
                         alt="login page image"
                     />
                 </div>
