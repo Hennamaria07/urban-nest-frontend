@@ -43,7 +43,7 @@ const UserNavbar = () => {
     const { cartItems } = cart
 
     return (
-        <nav className="fixed z-20 w-full border-b-2 dark:bg-gray-900 bg-zinc-100">
+        <nav className="w-full border-b-2 dark:bg-gray-900 bg-zinc-100">
             <Toaster />
             <div className="w-full flex items-center justify-between p-3">
                 <Link to={"/"} className="inline-flex items-center space-x-2">
