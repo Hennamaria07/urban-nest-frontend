@@ -2,23 +2,23 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./features/users/userSlice";
 // import categoryReducer from "./features/category/categoryCrud";
 import productReducer from "./features/products/productSlice";
-// import whislistReducer from "./features/fav/whislist";
-// import { getWhislistFromLocalStorage } from "@/lib/localStorage";
+import whislistReducer from "./features/whislists/whislistSlice";
+import { getWhislistFromLocalStorage } from "@/lib/localStorage";
 import cartReducer from "./features/carts/cartSlice";
 // import orderReducer from "./features/orders/orderCurd";
 
-// const initialWhislists = getWhislistFromLocalStorage();
+const initialWhislists = getWhislistFromLocalStorage();
 
 export const store = configureStore({
     reducer: {
         users: userReducer,
         // category: categoryReducer,
         product: productReducer,
-        // whislists: whislistReducer,
+        whislists: whislistReducer,
         cart: cartReducer,
         // orders: orderReducer,
     },
-    // preloadedState: {
-    //     whislists: initialWhislists,
-    // },
+    preloadedState: {
+        whislists: initialWhislists,
+    },
 });
