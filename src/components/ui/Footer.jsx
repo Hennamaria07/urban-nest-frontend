@@ -21,7 +21,7 @@ const Footer = () => {
         }
     ]
     return (
-        <footer className="bg-white fixed bottom-0 rounded-lg w-full shadow dark:bg-gray-900">
+        <footer className="bg-white rounded-lg w-full shadow dark:bg-gray-900">
             <div className="w-full p-2">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <Link to={"/"} className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
