@@ -4,9 +4,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AuthLayout, UserLayout } from './layout'
 import { Login, Signup } from './components'
 import { ContactPage, Hero, Whislist } from './pages'
-
+import ProtectedRouter from "./lib/ProtectedRouter"
+import { useSelector } from 'react-redux'
+import ProductDetailsPage from './pages/userPages/ProductDetail'
 function App() {
-
+  const isAuthenticated = useSelector(state => state.users.user.isAuthenticated);
+  const role = useSelector(state => state.users?.user?.userInfo?.role);
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -36,6 +40,11 @@ function App() {
           <Route
             path="/whislist"
             element={<Whislist />} />
+            <Route
+            path="/product/:id"
+            element= {
+              <ProductDetailsPage />
+            } />
           {/* <Route
             path="/cart"
             element={

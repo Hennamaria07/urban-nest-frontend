@@ -16,7 +16,7 @@ const Whislist = () => {
                 <meta name="keywords" content="urban nest wishlist, save favorite items, furniture e-commerce user dashboard, item tracking, personalized shopping, wishlist management" />
                 <link rel="canonical" href="https://urban-nest-app.netlify.app/wishlist" />
             </Helmet>
-            <SubBanner title={"Whislist"} href={'/'} page1={"Home"} page2={"Whislist"} />
+            <SubBanner title={"Whislist"} href={'/'} page1={"Home"} page2={"Whislist"} color={"text-black"}/>
             <section className='container py-5'>
 
                 <ProductCard products={whislists} />
