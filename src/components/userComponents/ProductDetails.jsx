@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { addToWhislist, removeFromWhislist, setWhislist } from '@/redux/features/whislists/whislistSlice';
 import { addWhislistToLocalStorage, getWhislistFromLocalStorage, removeWhislistFromLocalStorage } from '@/lib/localStorage';
+import { addToCart } from '@/redux/features/carts/cartSlice';
 
 const ProductDetails = ({ product }) => {
     const [count, setCount] = useState(1);

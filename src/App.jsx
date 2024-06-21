@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AuthLayout, UserLayout } from './layout'
 import { Login, Signup } from './components'
-import { ContactPage, Hero, Whislist } from './pages'
-import ProtectedRouter from "./lib/ProtectedRouter"
+import { CartPage, ContactPage, ForgotPassword, Hero, ResetPassword, Whislist } from './pages'
 import { useSelector } from 'react-redux'
 import ProductDetailsPage from './pages/userPages/ProductDetail'
+import ProtectedRouter from './lib/ProtectedRouter'
 function App() {
   const isAuthenticated = useSelector(state => state.users.user.isAuthenticated);
   const role = useSelector(state => state.users?.user?.userInfo?.role);
@@ -45,13 +44,23 @@ function App() {
             element= {
               <ProductDetailsPage />
             } />
-          {/* <Route
+            <Route
+            path="/forgot-password"
+            element= {
+              <ForgotPassword />
+            } />
+            <Route
+            path="/reset-password"
+            element= {
+              <ResetPassword />
+            } />
+          <Route
             path="/cart"
             element={
               <ProtectedRouter isAuthenticated={isAuthenticated} role={role}>
-                <CartPAge />
+                <CartPage />
               </ProtectedRouter>
-            } /> */}
+            } />
         </Route>
       </Routes>
     </BrowserRouter>

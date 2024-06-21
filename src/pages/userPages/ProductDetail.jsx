@@ -1,5 +1,5 @@
 import { ProductDetails, ProductImage, ProductImageSkeleton, TextLoading } from '@/components'
-import { ReviewTab } from '@/components/user components/ReviewTab';
+import { ReviewTab } from '@/components/userComponents/ReviewTab';
 import { getProductById } from '@/redux/features/products/productSlice';
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';

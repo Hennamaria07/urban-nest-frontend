@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom'
 
@@ -10,11 +9,11 @@ const ProtectedRouter = ({ children, isAuthenticated, role }) => {
         return <Navigate to={"/login"} />;
     }
 
-    if (role === 'admin') {
-        return <Navigate to={'/admin/dashboard'} />;
-    } else if (role === 'seller') {
-        return <Navigate to={'/seller/dashboard'} />;
-    }
+    // if (isAuthenticated && role === 'admin') {
+    //     return <Navigate to={'/admin/dashboard'} />;
+    // } else if (isAuthenticated && role === 'seller') {
+    //     return <Navigate to={'/seller/dashboard'} />;
+    // }
 
     return children;
 };
