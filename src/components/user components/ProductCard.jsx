@@ -45,8 +45,7 @@ const ProductCard = ({ products }) => {
                 </div>
             </div>
         ) : (
-            <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {products?.map(product => (
+                products?.map(product => (
                     <article key={product._id} className="product h-[380px] sm:h-[350px] lg:h-[380px] bg-white dark:bg-zinc-900 relative z-15 shadow-md hover:scale-105 transition-all delay-100 ease-in-out rounded-md">
                         <figure className="w-full h-64">
                             <img
@@ -74,8 +73,7 @@ const ProductCard = ({ products }) => {
                             </div>
                         </Link>
                     </article>
-                ))}
-            </div>
+                ))
         )
     );
 };

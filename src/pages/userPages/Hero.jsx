@@ -61,7 +61,9 @@ const Hero = () => {
                     ) : (
                         <div>
                             <h1 className='text-3xl font-bold pb-5 text-[#F97316] dark:text-[#EA580C]'>Top Products</h1>
-                            <ProductCard products={bestSeller} />
+                            <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+                                <ProductCard products={bestSeller} />
+                            </div>
                         </div>
                     )}
                 </article>
@@ -74,7 +76,9 @@ const Hero = () => {
                     ) : (
                         <div>
                             <h1 className='text-3xl font-bold pb-5 text-[#F97316] dark:text-[#EA580C]'>New Arrivals</h1>
-                            <ProductCard products={newArrival} />
+                            <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                                <ProductCard products={newArrival} />
+                            </div>
                         </div>
                     )}
 
