@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AuthLayout, UserLayout } from './layout'
 import { Login, Signup } from './components'
-import { CartPage, ContactPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, PlaceOrder, ProductDetailsPage, ProductPage, ResetPassword, ShippingPage, Whislist } from './pages'
+import { CartPage, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, PlaceOrder, ProductDetailsPage, ProductPage, ProfilePage, ResetPassword, ShippingPage, Whislist } from './pages'
 import { useSelector } from 'react-redux'
 import ProtectedRouter from './lib/ProtectedRouter'
 function App() {
@@ -35,6 +35,10 @@ function App() {
           <Route
             path='/contact'
             element={<ContactPage />}
+          />
+          <Route
+            path='/faq'
+            element={<FaqPage />}
           />
           <Route
             path="/whislist"
@@ -99,6 +103,13 @@ function App() {
             element={
               <ProtectedRouter isAuthenticated={isAuthenticated} role={role}>
                 <OrderLists />
+              </ProtectedRouter>
+            } />
+          <Route
+            path="/user/profile"
+            element={
+              <ProtectedRouter isAuthenticated={isAuthenticated} role={role}>
+                <ProfilePage />
               </ProtectedRouter>
             } />
             

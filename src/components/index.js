@@ -16,6 +16,7 @@ import SubBanner from "./userComponents/SubBanner";
 import TableSkeleton from "./userComponents/TableSkeleton";
 import TextLoading from "./userComponents/TextLoading";
 import OrderTable from "./userComponents/OrderTable";
+import FaqAccordion from "./userComponents/FaqAccordion";
 
 export {
     Login,
@@ -35,5 +36,6 @@ export {
     BreadCrumbThree,
     TableSkeleton,
     OrderDetailTable,
-    OrderTable
+    OrderTable,
+    FaqAccordion
 }

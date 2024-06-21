@@ -11,6 +11,8 @@ import ProductDetailsPage from "./userPages/ProductDetail";
 import Order from "./userPages/Order";
 import OrderDetail from "./userPages/OrderDetails";
 import OrderLists from "./userPages/OrderLists";
+import FaqPage from "./userPages/Faq";
+import ProfilePage from "./userPages/Profile";
 
 export {
     Hero,
@@ -25,5 +27,7 @@ export {
     PlaceOrder, 
     Order,
     OrderDetail,
-    OrderLists
+    OrderLists,
+    FaqPage,
+    ProfilePage
 }
