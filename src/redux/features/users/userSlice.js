@@ -7,10 +7,10 @@ import { Navigate, useNavigate } from "react-router-dom";
 const initialState = {
     users: [],
     user: {
-        isAuthenticated: localStorage.getItem('isAuthenticated') ? localStorage.getItem('isAuthenticated') === 'true' : false,
-        userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null,
-        token: localStorage.getItem('token') ? localStorage.getItem('token') : null,
-        tokenExpiry: localStorage.getItem('tokenExpiry') ? localStorage.getItem('tokenExpiry') : null,
+        isAuthenticated: sessionStorage.getItem('isAuthenticated') ? sessionStorage.getItem('isAuthenticated') === 'true' : false,
+        userInfo: sessionStorage.getItem('userInfo') ? JSON.parse(sessionStorage.getItem('userInfo')) : null,
+        token: sessionStorage.getItem('token') ? sessionStorage.getItem('token') : null,
+        tokenExpiry: sessionStorage.getItem('tokenExpiry') ? sessionStorage.getItem('tokenExpiry') : null,
     },
     isLoading: false,
     isError: false,
@@ -137,12 +137,13 @@ export const latestSellers =createAsyncThunk(
 )
 
 export const logoutDueToTokenExpiry = createAsyncThunk(
-    "user/logoutDueToTokenExpiry",
-    async (_, { rejectWithValue }) => {
+    'users/logoutDueToTokenExpiry',
+    async (_, thunkAPI) => {
         try {
-            return { success: true, message: "Token expired, user logged out" };
+            await axios.post('/api/v1/user/logout');
+            return { message: 'Session expired. Please log in again.' };
         } catch (error) {
-            return rejectWithValue(error.message);
+            return thunkAPI.rejectWithValue(error.response.data);
         }
     }
 );
@@ -191,7 +192,7 @@ const userSlice = createSlice({
     reducers: {
         adduserInfo: (state, action) => {
             state.user.userInfo = action.payload;
-            localStorage.setItem("userInfo", JSON.stringify(action.payload))
+            sessionStorage.setItem("userInfo", JSON.stringify(action.payload))
         }
     },
     extraReducers: (builder) => {
@@ -208,10 +209,10 @@ const userSlice = createSlice({
             state.user.isAuthenticated = isAuthenticated;
             state.isLoading = false;
             state.isError = false;
-            localStorage.setItem("userInfo", JSON.stringify(data));
-            localStorage.setItem("token", token);
-            localStorage.setItem("tokenExpiry", tokenExpiry);
-            localStorage.setItem("isAuthenticated", isAuthenticated);
+            sessionStorage.setItem("userInfo", JSON.stringify(data));
+            sessionStorage.setItem("token", token);
+            sessionStorage.setItem("tokenExpiry", tokenExpiry);
+            sessionStorage.setItem("isAuthenticated", isAuthenticated);
         });
         builder.addCase(createUser.rejected, (state, action) => {
             state.isLoading = false;
@@ -231,10 +232,10 @@ const userSlice = createSlice({
             state.user.isAuthenticated = isAuthenticated;
             state.isLoading = false;
             state.isError = false;
-            localStorage.setItem("userInfo", JSON.stringify(data));
-            localStorage.setItem("token", token);
-            localStorage.setItem("tokenExpiry", tokenExpiry);
-            localStorage.setItem("isAuthenticated", isAuthenticated);
+            sessionStorage.setItem("userInfo", JSON.stringify(data));
+            sessionStorage.setItem("token", token);
+            sessionStorage.setItem("tokenExpiry", tokenExpiry);
+            sessionStorage.setItem("isAuthenticated", isAuthenticated);
         });
         builder.addCase(loginUser.rejected, (state, action) => {
             state.isLoading = false;
@@ -253,31 +254,12 @@ const userSlice = createSlice({
             state.user.isAuthenticated = false;
             state.isLoading = false;
             state.isError = false;
-            localStorage.clear();
         });
         builder.addCase(logoutUser.rejected, (state, action) => {
             state.isLoading = false;
             state.isError = true;
         });
 
-        // Handle logout due to token expiry
-        builder.addCase(logoutDueToTokenExpiry.pending, (state) => {
-            state.isLoading = true;
-            state.isError = false;
-        });
-        builder.addCase(logoutDueToTokenExpiry.fulfilled, (state) => {
-            state.user.userInfo = null;
-            state.user.token = null;
-            state.user.tokenExpiry = null;
-            state.user.isAuthenticated = false;
-            state.isLoading = false;
-            state.isError = false;
-            localStorage.clear();
-        });
-        builder.addCase(logoutDueToTokenExpiry.rejected, (state, action) => {
-            state.isLoading = false;
-            state.isError = true;
-        });
 
         // fetch all users
         builder.addCase(fetchUsers.pending, (state) => {
@@ -292,7 +274,13 @@ const userSlice = createSlice({
         builder.addCase(fetchUsers.rejected, (state, action) => {
             state.isLoading = false;
             state.isError = true;
-            console.log(action.payload)
+            
+            if (action.payload === "jwt expired") {
+                state.user.userInfo = null;
+                state.user.token = null;
+                state.user.tokenExpiry = null;
+                state.user.isAuthenticated = false;
+            }
         });
 
         // fetch user by id
@@ -318,7 +306,7 @@ const userSlice = createSlice({
             state.user.userInfo = action.payload.data;
             state.isLoading = false;
             state.isError = false;
-            localStorage.setItem("userInfo", JSON.stringify(action.payload.data));
+            sessionStorage.setItem("userInfo", JSON.stringify(action.payload.data));
         });
         builder.addCase(updateUser.rejected, (state, action) => {
             state.isLoading = false;
