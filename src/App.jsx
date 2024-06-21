@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AuthLayout, UserLayout } from './layout'
 import { Login, Signup } from './components'
-import { CartPage, ContactPage, ForgotPassword, Hero, ResetPassword, Whislist } from './pages'
+import { CartPage, ContactPage, ForgotPassword, Hero, ProductPage, ResetPassword, Whislist } from './pages'
 import { useSelector } from 'react-redux'
 import ProductDetailsPage from './pages/userPages/ProductDetail'
 import ProtectedRouter from './lib/ProtectedRouter'
@@ -40,6 +40,11 @@ function App() {
             path="/whislist"
             element={<Whislist />} />
             <Route
+            path="/shop"
+            element= {
+              <ProductPage />
+            } />
+            <Route
             path="/product/:id"
             element= {
               <ProductDetailsPage />
@@ -61,6 +66,13 @@ function App() {
                 <CartPage />
               </ProtectedRouter>
             } />
+          {/* <Route
+            path="/cart"
+            element={
+              <ProtectedRouter isAuthenticated={isAuthenticated} role={role}>
+                <CartPage />
+              </ProtectedRouter>
+            } /> */}
         </Route>
       </Routes>
     </BrowserRouter>

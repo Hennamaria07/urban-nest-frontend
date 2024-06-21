@@ -5,6 +5,7 @@ import Whislist from "./userPages/Whislist";
 import ForgotPassword from "./userPages/ForgotPassword";
 import ResetPassword from "./userPages/ResetPassword";
 import { CartPage } from "./userPages/Cart";
+import ProductPage from "./userPages/Shop";
 
 export {
     Hero,
@@ -13,5 +14,6 @@ export {
     ProductDetails,
     ForgotPassword, 
     ResetPassword,
-    CartPage
+    CartPage,
+    ProductPage
 }

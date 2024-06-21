@@ -31,21 +31,7 @@ const ProductCard = ({ products }) => {
     };
 
     return (
-        products?.length === 0 ? (
-            <div className="my-12 grid place-items-center px-2 md:my-24 md:px-0">
-                <div className="lg:flex lg:items-center lg:space-x-10">
-                    <img
-                        src="https://res.cloudinary.com/freestyle07/image/upload/v1718628757/collecting-concept-illustration_elzdbi.png"
-                        alt="question-mark"
-                        className="h-[300px] w-auto"
-                    />
-                </div>
-                <div className="mt-6 text-lg font-semibold">
-                    <span>No Products Found{' '}</span>
-                </div>
-            </div>
-        ) : (
-                products?.map(product => (
+         products?.map(product => (
                     <article key={product._id} className="product h-[380px] sm:h-[350px] lg:h-[380px] bg-white dark:bg-zinc-900 relative z-15 shadow-md hover:scale-105 transition-all delay-100 ease-in-out rounded-md">
                         <figure className="w-full h-64">
                             <img
@@ -74,7 +60,6 @@ const ProductCard = ({ products }) => {
                         </Link>
                     </article>
                 ))
-        )
     );
 };
 

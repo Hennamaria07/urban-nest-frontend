@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./features/users/userSlice";
-// import categoryReducer from "./features/category/categoryCrud";
+import categoryReducer from "./features/categories/CategoriesSlice";
 import productReducer from "./features/products/productSlice";
 import whislistReducer from "./features/whislists/whislistSlice";
 import { getWhislistFromLocalStorage } from "@/lib/localStorage";
@@ -12,7 +12,7 @@ const initialWhislists = getWhislistFromLocalStorage();
 export const store = configureStore({
     reducer: {
         users: userReducer,
-        // category: categoryReducer,
+        category: categoryReducer,
         product: productReducer,
         whislists: whislistReducer,
         cart: cartReducer,
