@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
-import { getLatestProduct, getTopProducts } from '../redux/features/products/productSlice';
-import { CardLoader, ProductCard } from '../components';
+import { getLatestProduct, getTopProducts } from '@/redux/features/products/productSlice';
+import { CardLoader, ProductCard } from '@/components';
 
 const Hero = () => {
     const [bestSeller, setBestSeller] = useState(null);

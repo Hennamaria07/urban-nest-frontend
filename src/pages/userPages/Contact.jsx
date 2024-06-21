@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet'
 import React from 'react'
-import { ContactDetails, SubBanner } from '../components'
+import { ContactDetails, SubBanner } from '../../components'
 
 const ContactPage = () => {
   return (
