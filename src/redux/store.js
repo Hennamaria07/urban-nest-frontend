@@ -5,7 +5,7 @@ import productReducer from "./features/products/productSlice";
 import whislistReducer from "./features/whislists/whislistSlice";
 import { getWhislistFromLocalStorage } from "@/lib/localStorage";
 import cartReducer from "./features/carts/cartSlice";
-// import orderReducer from "./features/orders/orderCurd";
+import orderReducer from "./features/orders/orderSlice";
 
 const initialWhislists = getWhislistFromLocalStorage();
 
@@ -16,7 +16,7 @@ export const store = configureStore({
         product: productReducer,
         whislists: whislistReducer,
         cart: cartReducer,
-        // orders: orderReducer,
+        orders: orderReducer,
     },
     preloadedState: {
         whislists: initialWhislists,

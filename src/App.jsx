@@ -2,9 +2,8 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AuthLayout, UserLayout } from './layout'
 import { Login, Signup } from './components'
-import { CartPage, ContactPage, ForgotPassword, Hero, ProductPage, ResetPassword, Whislist } from './pages'
+import { CartPage, ContactPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, PlaceOrder, ProductDetailsPage, ProductPage, ResetPassword, ShippingPage, Whislist } from './pages'
 import { useSelector } from 'react-redux'
-import ProductDetailsPage from './pages/userPages/ProductDetail'
 import ProtectedRouter from './lib/ProtectedRouter'
 function App() {
   const isAuthenticated = useSelector(state => state.users.user.isAuthenticated);
@@ -22,10 +21,6 @@ function App() {
             path='/signup'
             element={<Signup />}
           />
-          <Route
-            path='/contact'
-            element={<ContactPage />}
-          />
         </Route>
 
         {/* User Routes */}
@@ -35,6 +30,11 @@ function App() {
           <Route
             path='/'
             element={<Hero />}
+          />
+          
+          <Route
+            path='/contact'
+            element={<ContactPage />}
           />
           <Route
             path="/whislist"
@@ -66,13 +66,42 @@ function App() {
                 <CartPage />
               </ProtectedRouter>
             } />
-          {/* <Route
-            path="/cart"
+          <Route
+            path="/shipping"
             element={
               <ProtectedRouter isAuthenticated={isAuthenticated} role={role}>
-                <CartPage />
+                <ShippingPage />
               </ProtectedRouter>
-            } /> */}
+            } />
+          <Route
+            path="/placeorder"
+            element={
+              <ProtectedRouter isAuthenticated={isAuthenticated} role={role}>
+                <PlaceOrder />
+              </ProtectedRouter>
+            } />
+          <Route
+            path="/order/:id"
+            element={
+              <ProtectedRouter isAuthenticated={isAuthenticated} role={role}>
+                <Order />
+              </ProtectedRouter>
+            } />
+          <Route
+            path="/order-details/:id"
+            element={
+              <ProtectedRouter isAuthenticated={isAuthenticated} role={role}>
+                <OrderDetail />
+              </ProtectedRouter>
+            } />
+          <Route
+            path="/user/orders"
+            element={
+              <ProtectedRouter isAuthenticated={isAuthenticated} role={role}>
+                <OrderLists />
+              </ProtectedRouter>
+            } />
+            
         </Route>
       </Routes>
     </BrowserRouter>

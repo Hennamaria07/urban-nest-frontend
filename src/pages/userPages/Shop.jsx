@@ -225,13 +225,11 @@ const ProductPage = () => {
                             </div>
                         </form>
                         {products?.length > 0 ? (
+                            <div>
                             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             <ProductCard products={products} />
                             </div>
-                        ) : (
-                            <EmptyMessage msg={"Products not found"} />
-                        )}
-
+                            
                         <div className="mt-2 grid gap-5 sm:flex items-center justify-between">
                             <div>
                                 {`Showing ${start} to ${end} of ${products?.length} results`}
@@ -257,6 +255,12 @@ const ProductPage = () => {
                                 </Button>
                             </div>
                         </div>
+                        </div>
+                            
+                        ) : (
+                            <EmptyMessage msg={"Products not found"} />
+                        )}
+
                     </div>
                 </div>
             </section>

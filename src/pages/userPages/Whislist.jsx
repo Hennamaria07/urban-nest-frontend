@@ -1,6 +1,4 @@
-import { ProductCard, SubBanner } from '@/components';
-import { getWhislistFromLocalStorage } from '@/lib/localStorage';
-import { setWhislist } from '@/redux/features/whislists/whislistSlice';
+import { EmptyMessage, ProductCard, SubBanner } from '@/components';
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
@@ -19,7 +17,13 @@ const Whislist = () => {
             <SubBanner title={"Whislist"} href={'/'} page1={"Home"} page2={"Whislist"} color={"text-black"}/>
             <section className='container py-5'>
 
-                <ProductCard products={whislists} />
+                {
+                    whislists.length > 0 ?
+                   ( <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                        <ProductCard products={whislists} />
+                    </div>)
+                    : <EmptyMessage msg={"Your Whislists is empty!"}/>
+                }
             </section>
         </section>
     )

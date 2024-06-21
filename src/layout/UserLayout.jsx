@@ -8,7 +8,7 @@ const UserLayout = () => {
       <header className="fixed z-20 w-full">
       <UserNavbar />
       </header>
-      <main className="pt-[64px]">
+      <main className="pt-[64px] min-h-screen">
       <Outlet />
       </main>
       <Footer />
