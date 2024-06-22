@@ -1,15 +1,22 @@
 // import { SellerSidebar } from '@/components'
-import React from 'react'
+import { Header, SideBar } from '@/components';
+import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
 const SellerLayout = () => {
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
+
   return (
-    <main className='h-screen w-screen overflow-x-hidden'>
-        {/* <SellerSidebar /> */}
-      <div className="ps-[6rem] w-full h-full ">
-      <Outlet />
-      </div>
+    <div>
+      <SideBar sidebarToggle={openSidebarToggle} />
+      {/* <Home className="col-span-3 grid-area-main" /> */}
+      <main className={`${openSidebarToggle ? "" : "ml-64"}`}>
+      <Header 
+      sidebarToggle={openSidebarToggle}
+        setSidebarToggle={setOpenSidebarToggle} />
+        <Outlet />
       </main>
+    </div>
   )
 }
 

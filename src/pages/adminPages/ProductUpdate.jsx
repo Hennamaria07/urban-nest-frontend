@@ -19,7 +19,7 @@ const ProductUpdatePage = () => {
     }, [id]);
 
     return (
-        <div className="ps-[6rem] w-full overflow-x-hidden h-full">
+        <div className="container py-5 w-full overflow-x-hidden h-full">
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>Update Product - Urban Nest Furniture | Edit Product Details</title>

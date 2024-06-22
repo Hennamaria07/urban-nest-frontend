@@ -25,6 +25,13 @@ const AdminDashboard = () => {
                 <meta name="keywords" content="urban nest admin dashboard, e-commerce operations management, furniture store admin panel, sales tracking, inventory management, performance optimization" />
                 <link rel="canonical" href="https://urban-nest-app.netlify.app/admin/dashboard" />
             </Helmet>
+            <h1
+                className="text-2xl font-semibold pb-5"
+            >
+                Welcome,{' '}
+                <span className='text-orange-500 capitalize'>{user.firstName}</span>{' '}
+                <span className='text-orange-500 capitalize'>{user.lastName}</span>
+            </h1>
             <div className='grid sm:grid-cols-2 gap-5 lg:grid-cols-4'>
                 <Stats
                     title={"Total Products"}

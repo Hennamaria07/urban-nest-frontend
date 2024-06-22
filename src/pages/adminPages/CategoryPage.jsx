@@ -20,6 +20,7 @@ const CategoryCard = () => {
     const loading = useSelector(state => state.category.isLoading);
     // console.log('categories', loading)
     const dispatch = useDispatch();
+    const role = useSelector(state => state.users.user.userInfo.role);
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema)
@@ -46,7 +47,9 @@ const CategoryCard = () => {
         <section className='container lg:py-5 py-10 grid'>
             <Toaster />
             <article className='flex justify-start'>
+                {role === 'admin' ?
                 <BreadCrumbTwo href={"/admin/dashboard"} page1={"Dashboard"} page2={"Products"} color={"text-black dark:text-white"} />
+            : <BreadCrumbTwo href={"/seller/dashboard"} page1={"Dashboard"} page2={"Products"} color={"text-black dark:text-white"} />}
             </article>
             <article className='grid py-5 gap-4'>
                 <h1 className='font-semibold text-xl sm:text-4xl'>Manage Categories</h1>

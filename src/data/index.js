@@ -84,3 +84,27 @@ export const AdminSidebarData = [
     }
     
 ]
+
+export const SellerSidebarData = [
+    {
+        href: "/seller/dashboard",
+        title: "Home",
+        icon: 'dashboard'
+    },
+    {
+        href: "/seller/categories",
+        title: "Categories",
+        icon: 'category'
+    },
+    {
+        href: "/seller/products",
+        title: "Products",
+        icon: 'product'
+    },
+    {
+        href: "/seller/orders",
+        title: "Orders",
+        icon: 'order'
+    },
+    
+]

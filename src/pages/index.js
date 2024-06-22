@@ -24,6 +24,9 @@ import OrderPage from "./adminPages/OrderPage";
 import UserListPage from "./adminPages/UsersPage";
 import UserEdit from "./adminPages/UpdateUser";
 import SellerListPage from "./adminPages/SellerList";
+import SellerDashBoardPage from "./sellerPages/SellerDashboard";
+import SellerProductListPage from "./sellerPages/SellerProductLists";
+import SellerOrderPage from "./sellerPages/SellerOrders";
 
 export {
     Hero,
@@ -51,5 +54,8 @@ export {
     OrderPage,
     UserListPage,
     UserEdit,
-    SellerListPage
+    SellerListPage,
+    SellerDashBoardPage,
+    SellerProductListPage,
+    SellerOrderPage
 }

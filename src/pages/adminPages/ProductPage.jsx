@@ -24,21 +24,6 @@ const ProductListingPage = () => {
     .catch(err => console.log(err))
   }, [products, totalPages]);
 
-  
-  const handlePreviousPage = () => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
-  }
-  const handleNextPage = () => {
-   if(totalPages > 1) {
-     if(page < totalPages) {
-      setPage(page + 1);
-     }
-   }
-  } 
-  const start = (page - 1) * pageSize + 1;
-  const end = Math.ceil(page * pageSize, totalProducts);
 
 
 

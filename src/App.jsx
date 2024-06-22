@@ -1,12 +1,13 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AdminLayout, AuthLayout, UserLayout } from './layout'
+import { AdminLayout, AuthLayout, SellerLayout, UserLayout } from './layout'
 import { Login, Signup } from './components'
-import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, OrderPage, PlaceOrder, ProductDetailsPage, ProductListingPage, ProductPage, ProfilePage, ResetPassword, SellerListPage, ShippingPage, UserEdit, UserListPage, Whislist } from './pages'
+import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, OrderPage, PlaceOrder, ProductDetailsPage, ProductListingPage, ProductPage, ProfilePage, ResetPassword,  SellerDashBoardPage, SellerListPage, SellerOrderPage, SellerProductListPage, ShippingPage, UserEdit, UserListPage, Whislist } from './pages'
 import { useSelector } from 'react-redux'
 import ProtectedRouter from './lib/ProtectedRouter';
 import AdminProtectedRouter from "./lib/AdminProtectedRouter"
 import ProductUpdatePage from './pages/adminPages/ProductUpdate'
+import SellerProtectedRouter from './lib/SellerProtectedRouter'
 function App() {
   const isAuthenticated = useSelector(state => state.users.user.isAuthenticated);
   const role = useSelector(state => state.users?.user?.userInfo?.role);
@@ -236,6 +237,62 @@ function App() {
                 <SellerListPage />
               </AdminProtectedRouter>
             }
+          />
+        </Route>
+
+        {/* Seller Routes */}
+        <Route
+          element={<SellerLayout />}
+        >
+          <Route
+          path='/seller/dashboard'
+          element={
+            <SellerProtectedRouter
+            isAuthenticated={isAuthenticated}
+            role={role}>
+              <SellerDashBoardPage />
+            </SellerProtectedRouter>
+          }
+          />
+          <Route
+          path='/seller/categories'
+          element={
+            <SellerProtectedRouter
+            isAuthenticated={isAuthenticated}
+            role={role}>
+              <CategoryCard />
+            </SellerProtectedRouter>
+          }
+          />
+          <Route
+          path='/seller/products'
+          element={
+            <SellerProtectedRouter
+            isAuthenticated={isAuthenticated}
+            role={role}>
+              <SellerProductListPage />
+            </SellerProtectedRouter>
+          }
+          />
+          <Route
+          path='/seller/product-update/:id'
+          element={
+            <SellerProtectedRouter
+            isAuthenticated={isAuthenticated}
+            role={role}>
+              <ProductUpdatePage />
+            </SellerProtectedRouter>
+          }
+          />
+          <Route
+          path='/seller/orders'
+          element={
+            <SellerProtectedRouter
+            isAuthenticated={isAuthenticated}
+            role={role}>
+              <SellerOrderPage />
+            </SellerProtectedRouter>
+          }
           />
         </Route>
       </Routes>
