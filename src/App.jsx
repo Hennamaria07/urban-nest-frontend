@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AdminLayout, AuthLayout, UserLayout } from './layout'
 import { Login, Signup } from './components'
-import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, PlaceOrder, ProductDetailsPage, ProductListingPage, ProductPage, ProfilePage, ResetPassword, ShippingPage, Whislist } from './pages'
+import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, OrderPage, PlaceOrder, ProductDetailsPage, ProductListingPage, ProductPage, ProfilePage, ResetPassword, SellerListPage, ShippingPage, UserEdit, UserListPage, Whislist } from './pages'
 import { useSelector } from 'react-redux'
 import ProtectedRouter from './lib/ProtectedRouter';
 import AdminProtectedRouter from "./lib/AdminProtectedRouter"
@@ -10,7 +10,7 @@ import ProductUpdatePage from './pages/adminPages/ProductUpdate'
 function App() {
   const isAuthenticated = useSelector(state => state.users.user.isAuthenticated);
   const role = useSelector(state => state.users?.user?.userInfo?.role);
-  
+
   return (
     <BrowserRouter>
       <Routes>
@@ -33,7 +33,7 @@ function App() {
             path='/'
             element={<Hero />}
           />
-          
+
           <Route
             path='/contact'
             element={<ContactPage />}
@@ -45,24 +45,24 @@ function App() {
           <Route
             path="/whislist"
             element={<Whislist />} />
-            <Route
+          <Route
             path="/shop"
-            element= {
+            element={
               <ProductPage />
             } />
-            <Route
+          <Route
             path="/product/:id"
-            element= {
+            element={
               <ProductDetailsPage />
             } />
-            <Route
+          <Route
             path="/forgot-password"
-            element= {
+            element={
               <ForgotPassword />
             } />
-            <Route
+          <Route
             path="/reset-password"
-            element= {
+            element={
               <ResetPassword />
             } />
           <Route
@@ -122,76 +122,120 @@ function App() {
               </ProtectedRouter>
             } />
         </Route>
-        
+
         {/* Admin Routes */}
         <Route
-        element={<AdminLayout />}
+          element={<AdminLayout />}
         >
           <Route
-          path='/admin/dashboard'
-          element={
-            <AdminProtectedRouter
-            isAuthenticated={isAuthenticated}
-            role={role}
-            >
-              <AdminDashboard />
-            </AdminProtectedRouter>
-          }
+            path='/admin/dashboard'
+            element={
+              <AdminProtectedRouter
+                isAuthenticated={isAuthenticated}
+                role={role}
+              >
+                <AdminDashboard />
+              </AdminProtectedRouter>
+            }
           />
           <Route
-          path='/admin/categories'
-          element={
-            <AdminProtectedRouter
-            isAuthenticated={isAuthenticated}
-            role={role}
-            >
-              <CategoryCard />
-            </AdminProtectedRouter>
-          }
+            path='/admin/categories'
+            element={
+              <AdminProtectedRouter
+                isAuthenticated={isAuthenticated}
+                role={role}
+              >
+                <CategoryCard />
+              </AdminProtectedRouter>
+            }
           />
           <Route
-          path='/admin/profile'
-          element={
-            <AdminProtectedRouter
-            isAuthenticated={isAuthenticated}
-            role={role}
-            >
-              <AdminProfilePage />
-            </AdminProtectedRouter>
-          }
+            path='/admin/profile'
+            element={
+              <AdminProtectedRouter
+                isAuthenticated={isAuthenticated}
+                role={role}
+              >
+                <AdminProfilePage />
+              </AdminProtectedRouter>
+            }
           />
           <Route
-          path='/admin/password'
-          element={
-            <AdminProtectedRouter
-            isAuthenticated={isAuthenticated}
-            role={role}
-            >
-              <AdminChangePassword />
-            </AdminProtectedRouter>
-          }
+            path='/admin/password'
+            element={
+              <AdminProtectedRouter
+                isAuthenticated={isAuthenticated}
+                role={role}
+              >
+                <AdminChangePassword />
+              </AdminProtectedRouter>
+            }
           />
           <Route
-          path='/admin/products'
-          element={
-            <AdminProtectedRouter
-            isAuthenticated={isAuthenticated}
-            role={role}
-            >
-              <ProductListingPage />
-            </AdminProtectedRouter>
-          }
+            path='/admin/products'
+            element={
+              <AdminProtectedRouter
+                isAuthenticated={isAuthenticated}
+                role={role}
+              >
+                <ProductListingPage />
+              </AdminProtectedRouter>
+            }
           />
           <Route
-          path='/admin/product-update/:id'
-          element={
-            <AdminProtectedRouter
-            isAuthenticated={isAuthenticated}
-            role={role}
-            >
-              <ProductUpdatePage />
-            </AdminProtectedRouter>
-          }
+            path='/admin/product-update/:id'
+            element={
+              <AdminProtectedRouter
+                isAuthenticated={isAuthenticated}
+                role={role}
+              >
+                <ProductUpdatePage />
+              </AdminProtectedRouter>
+            }
+          />
+          <Route
+            path='/admin/orders'
+            element={
+              <AdminProtectedRouter
+                isAuthenticated={isAuthenticated}
+                role={role}
+              >
+                <OrderPage />
+              </AdminProtectedRouter>
+            }
+          />
+          <Route
+            path='/admin/users'
+            element={
+              <AdminProtectedRouter
+                isAuthenticated={isAuthenticated}
+                role={role}
+              >
+                <UserListPage />
+              </AdminProtectedRouter>
+            }
+          />
+          <Route
+            path='/admin/user/edit/:id'
+            element={
+              <AdminProtectedRouter
+                isAuthenticated={isAuthenticated}
+                role={role}
+              >
+                <UserEdit />
+              </AdminProtectedRouter>
+            }
+          />
+          <Route
+            path='/admin/sellers'
+            element={
+              <AdminProtectedRouter
+                isAuthenticated={isAuthenticated}
+                role={role}
+              >
+                <SellerListPage />
+              </AdminProtectedRouter>
+            }
           />
         </Route>
       </Routes>

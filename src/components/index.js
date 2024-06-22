@@ -23,6 +23,9 @@ import Stats from "./adminComponents/Stats";
 import AddProductDialog from "./adminComponents/AddProductDialog";
 import ProductTable from "./adminComponents/ProductTable";
 import UpdateProduct from "./adminComponents/UpdateProduct";
+import UserTable from "./adminComponents/UserTable";
+import UserRoleUpdateForm from "./adminComponents/UserRoleUpdateForm";
+import SellerTable from "./adminComponents/SellerTable";
 
 export {
     Login,
@@ -49,5 +52,8 @@ export {
     Stats,
     AddProductDialog,
     ProductTable,
-    UpdateProduct
+    UpdateProduct,
+    UserTable,
+    UserRoleUpdateForm,
+    SellerTable
 }

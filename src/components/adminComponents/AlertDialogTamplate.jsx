@@ -36,7 +36,7 @@ const AlertDialogTamplate = ({id, btnText, qn, description, action, textColor, p
 
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
-      <AlertDialogTrigger className={`${textColor}`}>{btnText}</AlertDialogTrigger>
+      <AlertDialogTrigger className={`${textColor} w-full`}>{btnText}</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>{qn}</AlertDialogTitle>

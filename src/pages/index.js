@@ -20,6 +20,10 @@ import AdminChangePassword from "./adminPages/AdminChangePassword";
 import CategoryCard from "./adminPages/CategoryPage";
 import ProductListingPage from "./adminPages/ProductPage";
 import { UpdateProduct } from "@/components";
+import OrderPage from "./adminPages/OrderPage";
+import UserListPage from "./adminPages/UsersPage";
+import UserEdit from "./adminPages/UpdateUser";
+import SellerListPage from "./adminPages/SellerList";
 
 export {
     Hero,
@@ -43,5 +47,9 @@ export {
     AdminChangePassword,
     CategoryCard,
     ProductListingPage,
-    UpdateProduct
+    UpdateProduct,
+    OrderPage,
+    UserListPage,
+    UserEdit,
+    SellerListPage
 }
