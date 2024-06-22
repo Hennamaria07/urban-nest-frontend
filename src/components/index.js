@@ -19,6 +19,7 @@ import OrderTable from "./userComponents/OrderTable";
 import FaqAccordion from "./userComponents/FaqAccordion";
 import Header from "./admin components/Header";
 import SideBar from "./admin components/SideBar";
+import Stats from "./admin components/Stats";
 
 export {
     Login,
@@ -41,5 +42,6 @@ export {
     OrderTable,
     FaqAccordion,
     Header, 
-    SideBar
+    SideBar,
+    Stats
 }

@@ -17,6 +17,7 @@ import ChangePassword from "./userPages/ChangePassword";
 import AdminDashboard from "./adminPages/Dashboard";
 import AdminProfilePage from "./adminPages/AdminProfile";
 import AdminChangePassword from "./adminPages/AdminChangePassword";
+import CategoryCard from "./adminPages/CategoryPage";
 
 export {
     Hero,
@@ -37,5 +38,6 @@ export {
     ChangePassword,
     AdminDashboard,
     AdminProfilePage, 
-    AdminChangePassword
+    AdminChangePassword,
+    CategoryCard
 }

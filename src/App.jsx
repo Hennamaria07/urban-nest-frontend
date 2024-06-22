@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AdminLayout, AuthLayout, UserLayout } from './layout'
 import { Login, Signup } from './components'
-import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, PlaceOrder, ProductDetailsPage, ProductPage, ProfilePage, ResetPassword, ShippingPage, Whislist } from './pages'
+import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, PlaceOrder, ProductDetailsPage, ProductPage, ProfilePage, ResetPassword, ShippingPage, Whislist } from './pages'
 import { useSelector } from 'react-redux'
 import ProtectedRouter from './lib/ProtectedRouter';
 import AdminProtectedRouter from "./lib/AdminProtectedRouter"
@@ -134,6 +134,17 @@ function App() {
             role={role}
             >
               <AdminDashboard />
+            </AdminProtectedRouter>
+          }
+          />
+          <Route
+          path='/admin/categories'
+          element={
+            <AdminProtectedRouter
+            isAuthenticated={isAuthenticated}
+            role={role}
+            >
+              <CategoryCard />
             </AdminProtectedRouter>
           }
           />
