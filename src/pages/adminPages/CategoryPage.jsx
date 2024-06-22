@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CategoryDialog from '../../components/admin components/CategoryDialog';
+import CategoryDialog from '../../components/adminComponents/CategoryDialog';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { useForm } from 'react-hook-form';

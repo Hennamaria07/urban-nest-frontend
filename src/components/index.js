@@ -17,9 +17,12 @@ import TableSkeleton from "./userComponents/TableSkeleton";
 import TextLoading from "./userComponents/TextLoading";
 import OrderTable from "./userComponents/OrderTable";
 import FaqAccordion from "./userComponents/FaqAccordion";
-import Header from "./admin components/Header";
-import SideBar from "./admin components/SideBar";
-import Stats from "./admin components/Stats";
+import Header from "./adminComponents/Header";
+import SideBar from "./adminComponents/SideBar";
+import Stats from "./adminComponents/Stats";
+import AddProductDialog from "./adminComponents/AddProductDialog";
+import ProductTable from "./adminComponents/ProductTable";
+import UpdateProduct from "./adminComponents/UpdateProduct";
 
 export {
     Login,
@@ -43,5 +46,8 @@ export {
     FaqAccordion,
     Header, 
     SideBar,
-    Stats
+    Stats,
+    AddProductDialog,
+    ProductTable,
+    UpdateProduct
 }

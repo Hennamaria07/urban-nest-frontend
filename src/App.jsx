@@ -2,10 +2,11 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AdminLayout, AuthLayout, UserLayout } from './layout'
 import { Login, Signup } from './components'
-import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, PlaceOrder, ProductDetailsPage, ProductPage, ProfilePage, ResetPassword, ShippingPage, Whislist } from './pages'
+import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, PlaceOrder, ProductDetailsPage, ProductListingPage, ProductPage, ProfilePage, ResetPassword, ShippingPage, Whislist } from './pages'
 import { useSelector } from 'react-redux'
 import ProtectedRouter from './lib/ProtectedRouter';
 import AdminProtectedRouter from "./lib/AdminProtectedRouter"
+import ProductUpdatePage from './pages/adminPages/ProductUpdate'
 function App() {
   const isAuthenticated = useSelector(state => state.users.user.isAuthenticated);
   const role = useSelector(state => state.users?.user?.userInfo?.role);
@@ -167,6 +168,28 @@ function App() {
             role={role}
             >
               <AdminChangePassword />
+            </AdminProtectedRouter>
+          }
+          />
+          <Route
+          path='/admin/products'
+          element={
+            <AdminProtectedRouter
+            isAuthenticated={isAuthenticated}
+            role={role}
+            >
+              <ProductListingPage />
+            </AdminProtectedRouter>
+          }
+          />
+          <Route
+          path='/admin/product-update/:id'
+          element={
+            <AdminProtectedRouter
+            isAuthenticated={isAuthenticated}
+            role={role}
+            >
+              <ProductUpdatePage />
             </AdminProtectedRouter>
           }
           />

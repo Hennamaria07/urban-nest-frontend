@@ -18,6 +18,8 @@ import AdminDashboard from "./adminPages/Dashboard";
 import AdminProfilePage from "./adminPages/AdminProfile";
 import AdminChangePassword from "./adminPages/AdminChangePassword";
 import CategoryCard from "./adminPages/CategoryPage";
+import ProductListingPage from "./adminPages/ProductPage";
+import { UpdateProduct } from "@/components";
 
 export {
     Hero,
@@ -39,5 +41,7 @@ export {
     AdminDashboard,
     AdminProfilePage, 
     AdminChangePassword,
-    CategoryCard
+    CategoryCard,
+    ProductListingPage,
+    UpdateProduct
 }
