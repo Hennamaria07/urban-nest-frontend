@@ -13,7 +13,7 @@ import OrderDetail from "./userPages/OrderDetails";
 import OrderLists from "./userPages/OrderLists";
 import FaqPage from "./userPages/Faq";
 import ProfilePage from "./userPages/Profile";
-import ChangePassword from "./ChangePassword";
+import ChangePassword from "./userPages/ChangePassword";
 
 export {
     Hero,
