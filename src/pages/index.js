@@ -14,6 +14,9 @@ import OrderLists from "./userPages/OrderLists";
 import FaqPage from "./userPages/Faq";
 import ProfilePage from "./userPages/Profile";
 import ChangePassword from "./userPages/ChangePassword";
+import AdminDashboard from "./adminPages/Dashboard";
+import AdminProfilePage from "./adminPages/AdminProfile";
+import AdminChangePassword from "./adminPages/AdminChangePassword";
 
 export {
     Hero,
@@ -31,5 +34,8 @@ export {
     OrderLists,
     FaqPage,
     ProfilePage,
-    ChangePassword
+    ChangePassword,
+    AdminDashboard,
+    AdminProfilePage, 
+    AdminChangePassword
 }

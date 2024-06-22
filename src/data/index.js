@@ -50,3 +50,37 @@ export const sortData = [
         value: {"createdAt": -1}
     }
 ]
+
+export const AdminSidebarData = [
+    {
+        href: "/admin/dashboard",
+        title: "Home",
+        icon: 'dashboard'
+    },
+    {
+        href: "/admin/categories",
+        title: "Categories",
+        icon: 'category'
+    },
+    {
+        href: "/admin/products",
+        title: "Products",
+        icon: 'product'
+    },
+    {
+        href: "/admin/orders",
+        title: "Orders",
+        icon: 'order'
+    },
+    {
+        href: "/admin/users",
+        title: "Users",
+        icon: 'user'
+    },
+    {
+        href: "/admin/sellers",
+        title: "Sellers",
+        icon:'seller'
+    }
+    
+]

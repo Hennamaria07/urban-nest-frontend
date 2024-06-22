@@ -17,6 +17,8 @@ import TableSkeleton from "./userComponents/TableSkeleton";
 import TextLoading from "./userComponents/TextLoading";
 import OrderTable from "./userComponents/OrderTable";
 import FaqAccordion from "./userComponents/FaqAccordion";
+import Header from "./admin components/Header";
+import SideBar from "./admin components/SideBar";
 
 export {
     Login,
@@ -37,5 +39,7 @@ export {
     TableSkeleton,
     OrderDetailTable,
     OrderTable,
-    FaqAccordion
+    FaqAccordion,
+    Header, 
+    SideBar
 }

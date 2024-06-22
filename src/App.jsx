@@ -1,10 +1,11 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AuthLayout, UserLayout } from './layout'
+import { AdminLayout, AuthLayout, UserLayout } from './layout'
 import { Login, Signup } from './components'
-import { CartPage, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, PlaceOrder, ProductDetailsPage, ProductPage, ProfilePage, ResetPassword, ShippingPage, Whislist } from './pages'
+import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, PlaceOrder, ProductDetailsPage, ProductPage, ProfilePage, ResetPassword, ShippingPage, Whislist } from './pages'
 import { useSelector } from 'react-redux'
-import ProtectedRouter from './lib/ProtectedRouter'
+import ProtectedRouter from './lib/ProtectedRouter';
+import AdminProtectedRouter from "./lib/AdminProtectedRouter"
 function App() {
   const isAuthenticated = useSelector(state => state.users.user.isAuthenticated);
   const role = useSelector(state => state.users?.user?.userInfo?.role);
@@ -119,7 +120,45 @@ function App() {
                 <ChangePassword />
               </ProtectedRouter>
             } />
-            
+        </Route>
+        
+        {/* Admin Routes */}
+        <Route
+        element={<AdminLayout />}
+        >
+          <Route
+          path='/admin/dashboard'
+          element={
+            <AdminProtectedRouter
+            isAuthenticated={isAuthenticated}
+            role={role}
+            >
+              <AdminDashboard />
+            </AdminProtectedRouter>
+          }
+          />
+          <Route
+          path='/admin/profile'
+          element={
+            <AdminProtectedRouter
+            isAuthenticated={isAuthenticated}
+            role={role}
+            >
+              <AdminProfilePage />
+            </AdminProtectedRouter>
+          }
+          />
+          <Route
+          path='/admin/password'
+          element={
+            <AdminProtectedRouter
+            isAuthenticated={isAuthenticated}
+            role={role}
+            >
+              <AdminChangePassword />
+            </AdminProtectedRouter>
+          }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
