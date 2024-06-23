@@ -15,7 +15,7 @@ const SideBar = ({ sidebarToggle, setSidebarToggle }) => {
                         md:block w-64`}>
             <div className='my-2 mb-4'>
                 <h1 className='text-2xl font-bold'>
-                    Admin Dashboard
+                    {role === "admin" ? "Admin Dashboard" : "Seller Dashboard"} 
                 </h1>
             </div>
             <X className='w-6 h-6 absolute top-2 right-2 md:hidden' onClick={() => setSidebarToggle(false)} />
