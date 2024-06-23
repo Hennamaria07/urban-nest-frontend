@@ -10,7 +10,7 @@ const SideBar = ({ sidebarToggle, setSidebarToggle }) => {
     return (
         <aside
             id="sidebar"
-            className={`fixed h-full shadow py-2 px-4 bg-zinc-100 dark:bg-zinc-900 
+            className={`fixed h-full z-10 shadow py-2 px-4 bg-zinc-100 dark:bg-zinc-900 
                         ${sidebarToggle ? "block" : "hidden"} 
                         md:block w-64`}>
             <div className='my-2 mb-4'>

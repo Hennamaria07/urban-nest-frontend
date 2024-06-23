@@ -33,14 +33,14 @@ const UserTable = () => {
     }, [search, users]);
 
     return (
-        <section className="w-full h-full container">
-            <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0 px-4 py-4">
+        <section className="w-full h-full">
+            <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0 ">
                 <BreadCrumbTwo 
                 href={"/admin/dashboard"} 
                 page1={"Dashboard"} 
                 page2={"Users"} 
                 color={"text-black dark:text-white"} />
-                <div className="flex gap-5 items-center">
+                <div className="flex gap-5 items-center pb-5">
                     <div className="relative w-full">
                         <Input
                             type="search"
@@ -73,14 +73,14 @@ const UserTable = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col px-4 py-4">
+            <div className="flex flex-col">
                 {users?.length === 0 ? (
                     <EmptyMessage 
                     msg={"No users found"}
                     />
                 ) : (
                     <>
-                        <section className='grid gap-5 lg:grid-cols-4 md:grid-cols-2'>
+                        <section className='grid gap-5 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 md:grid-cols-1'>
                             {users && users.map(user => (
                                 <div key={user._id} className="bg-gray-100 dark:bg-gray-700 hover:scale-110 relative shadow-md overflow-hidden hover:shadow-2xl group rounded-xl p-5 transition-all duration-150 ease-in-out transform hover:bg-[#F97316] hover:dark:bg-[#EA580C]">
 

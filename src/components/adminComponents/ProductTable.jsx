@@ -47,8 +47,8 @@ const ProductTable = () => {
 
 
   return (
-    <section className="w-full h-full container">
-    <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0 py-4">
+    <section className="w-full h-full">
+    <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0 pb-4">
       <BreadCrumbTwo href={"/admin/dashboard"} page1={"Dashboard"} page2={"Products"} color={"text-black dark:text-white"} />
       <div className="grid sm:flex gap-5 sm:items-center sm:px-0">
         <div className="relative w-full">
