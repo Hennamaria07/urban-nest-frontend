@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AdminLayout, AuthLayout, SellerLayout, UserLayout } from './layout'
 import { Login, Signup } from './components'
-import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, OrderPage, PlaceOrder, ProductDetailsPage, ProductListingPage, ProductPage, ProfilePage, ResetPassword,  SellerDashBoardPage, SellerListPage, SellerOrderPage, SellerProductListPage, ShippingPage, UserEdit, UserListPage, Whislist } from './pages'
+import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, OrderPage, PlaceOrder, ProductDetailsPage, ProductListingPage, ProductPage, ProfilePage, ResetPassword,  SellerDashBoardPage, SellerListPage, SellerOrderPage, SellerPage, SellerProductListPage, ShippingPage, UserEdit, UserListPage, Whislist } from './pages'
 import { useSelector } from 'react-redux'
 import ProtectedRouter from './lib/ProtectedRouter';
 import AdminProtectedRouter from "./lib/AdminProtectedRouter"
@@ -120,6 +120,13 @@ function App() {
             element={
               <ProtectedRouter isAuthenticated={isAuthenticated} role={role}>
                 <ChangePassword />
+              </ProtectedRouter>
+            } />
+          <Route
+            path="/seller"
+            element={
+              <ProtectedRouter isAuthenticated={isAuthenticated} role={role}>
+                <SellerPage />
               </ProtectedRouter>
             } />
         </Route>

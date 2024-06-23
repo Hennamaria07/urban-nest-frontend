@@ -60,7 +60,7 @@ const ProductDetails = ({ product }) => {
         setTimeout(() => navigate('/cart'), 1000);
     }
     return (
-        <aside  className='container lg:p-0'>
+        <aside  className='container lg:p-0 mt-0 md:mt-14 lg:mt-5'>
             <div className='pb-5'>
                 <h1 className='capitalize text-2xl'>{product?.name}</h1>
                 <div className="py-2">
@@ -129,6 +129,7 @@ const ProductDetails = ({ product }) => {
                     </div>
                     <div className='flex gap-5 items-center'>
                         <Button 
+                        disabled={product?.quantity === 0 ? true : false}
                         onClick={handleAddToCart}
                         className="px-7 text-lg text-white">
                             <ShoppingBasket className='w-6 h-6 me-2' />

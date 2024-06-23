@@ -35,7 +35,7 @@ const ProductDetailsPage = () => {
             </section>
         ) : (
             <section className='lg:container mx-auto lg:px-4 lg:pb-5'>
-                <article className='py-5 overflow-hidden grid lg:grid-cols-2 gap-5 '>
+                <article className='pb-5 pt-0 overflow-hidden grid lg:grid-cols-2 gap-5 '>
                     <ProductImage images={product?.images} />
                     < ProductDetails product={product} />
                 </article >

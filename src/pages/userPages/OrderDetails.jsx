@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { BreadCrumbThree, OrderDetailTable, TableSkeleton, TextLoading } from '@/components';
 import { getOrderById } from '@/redux/features/orders/orderSlice';
-import { Card } from '@/components/ui/card';
 
 const OrderDetail = () => {
     const [order, setOrder] = useState(null);
