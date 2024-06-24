@@ -1,5 +1,5 @@
-import Login from "./auth component/Login";
-import Signup from "./auth component/Signup";
+import Login from "./authComponents/Login";
+import Signup from "./authComponents/Signup";
 import BreadCrumbThree from "./userComponents/BreadCrumbThree";
 import CardLoader from "./userComponents/CardLoader";
 import CartItems from "./userComponents/CartItems";
@@ -26,6 +26,9 @@ import UpdateProduct from "./adminComponents/UpdateProduct";
 import UserTable from "./adminComponents/UserTable";
 import UserRoleUpdateForm from "./adminComponents/UserRoleUpdateForm";
 import SellerTable from "./adminComponents/SellerTable";
+import VerificationEmail from "./authComponents/VerificationEmail";
+import ReEmailVerificationPage from "./authComponents/ReVerification";
+
 
 export {
     Login,
@@ -55,5 +58,7 @@ export {
     UpdateProduct,
     UserTable,
     UserRoleUpdateForm,
-    SellerTable
+    SellerTable,
+    VerificationEmail,
+    ReEmailVerificationPage
 }

@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AdminLayout, AuthLayout, SellerLayout, UserLayout } from './layout'
-import { Login, Signup } from './components'
+import { Login, ReEmailVerificationPage, Signup, VerificationEmail } from './components'
 import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, OrderPage, PlaceOrder, ProductDetailsPage, ProductListingPage, ProductPage, ProfilePage, ResetPassword,  SellerDashBoardPage, SellerListPage, SellerOrderPage, SellerPage, SellerProductListPage, ShippingPage, UserEdit, UserListPage, Whislist } from './pages'
 import { useSelector } from 'react-redux'
 import ProtectedRouter from './lib/ProtectedRouter';
@@ -19,6 +19,14 @@ function App() {
           <Route
             path='/login'
             element={<Login />}
+          />
+          <Route
+            path='/:id/verify'
+            element={<VerificationEmail />}
+          />
+          <Route
+            path='/resend-verification-email'
+            element={<ReEmailVerificationPage />}
           />
           <Route
             path='/signup'

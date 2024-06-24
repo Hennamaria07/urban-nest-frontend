@@ -186,6 +186,30 @@ export const resetPassword = createAsyncThunk(
     }
 );
 
+export const emailVerification = createAsyncThunk(
+    "patch/email-verification",
+    async (data, { rejectWithValue }) => {
+        try {
+            const response = await axiosInstance.patch(`/api/v1/user/${data.id}/verify`, {otp: data.otp}, { withCredentials: true });
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error?.response?.data?.message);
+        }
+    }
+)
+
+export const resentEmailVerification = createAsyncThunk(
+    "patch/resent-email-verification",
+    async (data, { rejectWithValue }) => {
+        try {
+            const response = await axiosInstance.patch(`/api/v1/user/resend-verification`, data, { withCredentials: true });
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error?.response?.data?.message);
+        }
+    }
+)
+
 const userSlice = createSlice({
     name: "userCrud",
     initialState,
@@ -202,17 +226,8 @@ const userSlice = createSlice({
             state.isError = false;
         });
         builder.addCase(createUser.fulfilled, (state, action) => {
-            const { data, token, tokenExpiry, isAuthenticated } = action.payload;
-            state.user.userInfo = data;
-            state.user.token = token;
-            state.user.tokenExpiry = tokenExpiry;
-            state.user.isAuthenticated = isAuthenticated;
             state.isLoading = false;
             state.isError = false;
-            sessionStorage.setItem("userInfo", JSON.stringify(data));
-            sessionStorage.setItem("token", token);
-            sessionStorage.setItem("tokenExpiry", tokenExpiry);
-            sessionStorage.setItem("isAuthenticated", isAuthenticated);
         });
         builder.addCase(createUser.rejected, (state, action) => {
             state.isLoading = false;
@@ -410,6 +425,34 @@ const userSlice = createSlice({
             state.isError = false;
         });
         builder.addCase(resetPassword.rejected, (state, action) => {
+            state.isLoading = false;
+            state.isError = true;
+        });
+
+        // email verification
+        builder.addCase(emailVerification.pending, (state, action) => {
+            state.isLoading = true;
+            state.isError = false;
+        });
+        builder.addCase(emailVerification.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.isError = false;
+        });
+        builder.addCase(emailVerification.rejected, (state, action) => {
+            state.isLoading = false;
+            state.isError = true;
+        });
+
+        // resend verification email
+        builder.addCase(resentEmailVerification.pending, (state, action) => {
+            state.isLoading = true;
+            state.isError = false;
+        });
+        builder.addCase(resentEmailVerification.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.isError = false;
+        });
+        builder.addCase(resentEmailVerification.rejected, (state, action) => {
             state.isLoading = false;
             state.isError = true;
         });

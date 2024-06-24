@@ -30,7 +30,7 @@ const Login = () => {
         console.log(data);
         dispatch(loginUser(data)).unwrap()
             .then(res => {
-                toast.success(res.message, { position: "top-center", duration: 1000 })
+                toast.success(res.message, { position: "top-center", duration: 1500 })
                 setTimeout(() => {
                     if (res.data.role === "admin") {
                         navigate('/admin/dashboard');
@@ -39,9 +39,9 @@ const Login = () => {
                     } else {
                         navigate('/');
                     }
-                }, 1000)
+                }, 1500)
             })
-            .catch(err => toast.error(err, { duration: 1000 }))
+            .catch(err => toast.error(err, { duration: 3000 }))
     };
 
 

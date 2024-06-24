@@ -47,12 +47,9 @@ const Signup = () => {
 
         dispatch(createUser(formData)).unwrap()
             .then(res => {
-                toast.success(res.message, { position: "top-center", duration: 1000 })
-                setTimeout(() => {
-                    navigate('/');
-                }, 1000)
+                toast.success(res.message, { position: "top-center", duration: 3000 })
             })
-            .catch(err => toast.error(err.message, { duration: 1000 }))
+            .catch(err => toast.error(err.message, { duration: 3000 }))
     }
 
     const togglePasswordVisibility = () => {
