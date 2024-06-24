@@ -108,3 +108,31 @@ export const SellerSidebarData = [
     },
     
 ]
+
+export const teamMembers = [
+    {
+      name: "John Doe",
+      occupation: "CEO & Web Developer",
+      imageUrl: "https://res.cloudinary.com/freestyle07/image/upload/v1719214995/to-his-surprise-ethan-was-chosen-as-one-of-the-finalists-this-meant-he-would-receive-mentorship-fr-161622308_g056z2.png",
+      about: "John drives the technical strategy of the urban nest platform and brand."
+    },
+    {
+      name: "zainab Asha",
+      occupation: "Lead Designer",
+      imageUrl: "https://res.cloudinary.com/freestyle07/image/upload/v1719215403/to-her-surprise-eva-was-chosen-as-one-of-the-finalists-this-meant-he-would-receive-mentorship-from-895988017_btvmjn.png",
+      about: "Zainab oversees all design aspects of the platform."
+    },
+    {
+      name: "Tanjiro Kamado",
+      occupation: "Marketing Manager",
+      imageUrl: "https://res.cloudinary.com/freestyle07/image/upload/v1719215411/to-his-surprise-eva-was-chosen-as-one-of-the-finalists-this-meant-he-would-receive-mentorship-from-591950538_utfcu5.png",
+      about: "Tanjiro is responsible for the marketing and outreach of UrbanNest."
+    },
+    {
+      name: "Tebogo Molefi",
+      occupation: "Customer Support Lead",
+      imageUrl: "https://res.cloudinary.com/freestyle07/image/upload/v1719215825/to-his-surprise-eva-was-chosen-as-one-of-the-finalists-this-meant-he-would-receive-mentorship-from-456071748_w8bep3.png",
+      about: "Alice ensures that our customers receive top-notch support."
+    }
+  ];
+  

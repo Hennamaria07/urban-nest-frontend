@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AdminLayout, AuthLayout, SellerLayout, UserLayout } from './layout'
 import { Login, ReEmailVerificationPage, Signup, VerificationEmail } from './components'
-import { AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, OrderPage, PlaceOrder, ProductDetailsPage, ProductListingPage, ProductPage, ProfilePage, ResetPassword,  SellerDashBoardPage, SellerListPage, SellerOrderPage, SellerPage, SellerProductListPage, ShippingPage, UserEdit, UserListPage, Whislist } from './pages'
+import { AboutPage, AdminChangePassword, AdminDashboard, AdminProfilePage, CartPage, CategoryCard, ChangePassword, ContactPage, FaqPage, ForgotPassword, Hero, Order, OrderDetail, OrderLists, OrderPage, PlaceOrder, ProductDetailsPage, ProductListingPage, ProductPage, ProfilePage, ResetPassword,  SellerDashBoardPage, SellerListPage, SellerOrderPage, SellerPage, SellerProductListPage, ShippingPage, UserEdit, UserListPage, Whislist } from './pages'
 import { useSelector } from 'react-redux'
 import ProtectedRouter from './lib/ProtectedRouter';
 import AdminProtectedRouter from "./lib/AdminProtectedRouter"
@@ -43,6 +43,10 @@ function App() {
             element={<Hero />}
           />
 
+          <Route
+            path='/about'
+            element={<AboutPage />}
+          />
           <Route
             path='/contact'
             element={<ContactPage />}

@@ -28,6 +28,9 @@ import UserRoleUpdateForm from "./adminComponents/UserRoleUpdateForm";
 import SellerTable from "./adminComponents/SellerTable";
 import VerificationEmail from "./authComponents/VerificationEmail";
 import ReEmailVerificationPage from "./authComponents/ReVerification";
+import HeroFooter from "./userComponents/HeroFooter";
+import OurStory from "./userComponents/OurStory";
+import MemberCard from "./userComponents/MemberCard";
 
 
 export {
@@ -60,5 +63,8 @@ export {
     UserRoleUpdateForm,
     SellerTable,
     VerificationEmail,
-    ReEmailVerificationPage
+    ReEmailVerificationPage,
+    HeroFooter,
+    OurStory,
+    MemberCard
 }

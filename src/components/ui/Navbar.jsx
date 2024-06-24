@@ -90,7 +90,7 @@ const UserNavbar = () => {
                         <Link to={"/login"} className='hover:text-orange-500'>
                             Login
                         </Link>
-                        <Link to={"/signup"} className='hover:text-orange-500'>
+                        <Link to={"/signup"} className='hover:text-orange-500 sm:inline hidden'>
                             Signup
                         </Link>
                     </div>

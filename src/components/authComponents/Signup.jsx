@@ -24,7 +24,6 @@ const signupSchema = yup.object({
 });
 
 const Signup = () => {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [loading, setloading] = useState(false);
     const [visiable, setVisible] = useState(false);
@@ -47,9 +46,13 @@ const Signup = () => {
 
         dispatch(createUser(formData)).unwrap()
             .then(res => {
+                setloading(false);
                 toast.success(res.message, { position: "top-center", duration: 3000 })
             })
-            .catch(err => toast.error(err.message, { duration: 3000 }))
+            .catch(err =>{
+                setloading(false);
+                toast.error(err.message, { duration: 3000 })
+            })
     }
 
     const togglePasswordVisibility = () => {

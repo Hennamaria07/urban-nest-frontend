@@ -6,6 +6,7 @@ import { Heart } from 'lucide-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addWhislistToLocalStorage, getWhislistFromLocalStorage, removeWhislistFromLocalStorage } from '@/lib/localStorage';
 import { addToWhislist, removeFromWhislist, setWhislist } from '../../redux/features/whislists/whislistSlice';
+import { Card } from '../ui/card';
 
 const ProductCard = ({ products }) => {
     const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const ProductCard = ({ products }) => {
 
     return (
          products?.map(product => (
-                    <article key={product._id} className="product h-[380px] sm:h-[350px] lg:h-[380px] bg-white dark:bg-zinc-900 relative z-15 shadow-md hover:scale-105 transition-all delay-100 ease-in-out rounded-md">
+                    <Card key={product._id} className="product h-[380px] sm:h-[350px] lg:h-[380px]  relative z-15 shadow-md hover:scale-105 transition-all delay-100 ease-in-out rounded-md">
                         <figure className="w-full h-64">
                             <img
                                 src={product.images[0]?.url}
@@ -48,7 +49,7 @@ const ProductCard = ({ products }) => {
                             )}
                         </div>
                         <Link to={`/product/${product._id}`} className="block">
-                            <div className="py-2 px-4 bg-white dark:bg-zinc-900 clearfix">
+                            <div className="py-2 px-4 0 clearfix">
                                 <div className="text-gray-500 dark:text-gray-200 text-sm">
                                     <h1 className="text-xl mb-1">{product.name}</h1>
                                     <DefaultStar star={product.rating} review={product.numReviews} starSize={false} />
@@ -58,7 +59,7 @@ const ProductCard = ({ products }) => {
                                 </div>
                             </div>
                         </Link>
-                    </article>
+                    </Card>
                 ))
     );
 };

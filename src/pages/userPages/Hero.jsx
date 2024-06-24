@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
 import { getLatestProduct, getTopProducts } from '@/redux/features/products/productSlice';
-import { CardLoader, ProductCard } from '@/components';
+import { CardLoader, HeroFooter, ProductCard } from '@/components';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     const [bestSeller, setBestSeller] = useState(null);
@@ -41,7 +43,7 @@ const Hero = () => {
                 <link rel="canonical" href="http://www.yourwebsite.com" />
             </Helmet>
             <div
-                className='h-[70vh] grid place-items-center w-full bg-[image:var(--image-url-sm)] sm:bg-[image:var(--image-url-md)] xl:bg-[image:var(--image-url)]'
+                className="h-[70vh] grid place-items-center w-full bg-[image:var(--image-url-sm)] sm:bg-[image:var(--image-url-md)] xl:bg-[image:var(--image-url)]"
                 style={{
                     '--image-url': `url(https://res.cloudinary.com/freestyle07/image/upload/v1718451719/an-e-commerce-website-banner-furniture-is-sold-on-the-website-the-furniture-color-should-be-orange-403796191_qty7t4.png)`,
                     '--image-url-md': `url(https://res.cloudinary.com/freestyle07/image/upload/v1718783568/orange-sofa-image-for-the-e-commerce-furniture-website-banner-background-should-be-filled-with-more--877807472_ugrh2g.png)`,
@@ -50,8 +52,17 @@ const Hero = () => {
                     backgroundRepeat: "no-repeat",
                     backgroundAttachment: "fixed",
                     backgroundSize: "cover",
+
                 }}
-            ></div>
+            >
+                <div className="text-white text-center container">
+                    <h1 className="text-2xl sm:text-4xl font-bold mb-4">Transform Your Space with UrbanNest</h1>
+                    <p className="text-sm font-medium sm:text-lg">Find stylish and affordable furniture to make your home cozy and unique</p>
+                    <button className="bg-[#DA2222] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-6">
+                        Explore Our Collection
+                    </button>
+                </div>
+            </div>
             <section className='container py-5 grid gap-5'>
                 <article>
                     {loading ? (
@@ -63,6 +74,13 @@ const Hero = () => {
                             <h1 className='text-3xl font-bold pb-5 text-[#F97316] dark:text-[#EA580C]'>Top Products</h1>
                             <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
                                 <ProductCard products={bestSeller} />
+                            </div>
+                            <div className='grid place-items-center pt-7'>
+                                <Link to={'/shop'}>
+                                    <Button className="px-7 bg-[#da4444]">
+                                        View All Products
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
                     )}
@@ -79,9 +97,19 @@ const Hero = () => {
                             <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                                 <ProductCard products={newArrival} />
                             </div>
+                            <div className='grid place-items-center pt-7'>
+                                <Link to={'/shop'}>
+                                    <Button className="px-7 bg-[#da4444]">
+                                        View All Products
+                                    </Button>
+                                </Link>
+                            </div>
                         </div>
                     )}
 
+                </article>
+                <article className='my-5'>
+                    <HeroFooter />
                 </article>
             </section>
         </div>
