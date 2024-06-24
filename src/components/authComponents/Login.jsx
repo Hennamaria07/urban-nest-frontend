@@ -41,7 +41,7 @@ const Login = () => {
                     }
                 }, 1500)
             })
-            .catch(err => toast.error(err, { duration: 3000 }))
+            .catch(err => toast.error(err, { duration: 1500 }))
     };
 
 
