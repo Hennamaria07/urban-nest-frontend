@@ -29,6 +29,16 @@ function App() {
             element={<ReEmailVerificationPage />}
           />
           <Route
+            path="/forgot-password"
+            element={
+              <ForgotPassword />
+            } />
+          <Route
+            path="/reset-password"
+            element={
+              <ResetPassword />
+            } />
+          <Route
             path='/signup'
             element={<Signup />}
           />
@@ -75,16 +85,6 @@ function App() {
             path="/product/:id"
             element={
               <ProductDetailsPage />
-            } />
-          <Route
-            path="/forgot-password"
-            element={
-              <ForgotPassword />
-            } />
-          <Route
-            path="/reset-password"
-            element={
-              <ResetPassword />
             } />
           <Route
             path="/cart"
