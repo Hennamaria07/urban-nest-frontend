@@ -5,6 +5,7 @@ import { getLatestProduct, getTopProducts } from '@/redux/features/products/prod
 import { CardLoader, HeroFooter, ProductCard } from '@/components';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import "../../App.css"
 
 const Hero = () => {
     const [bestSeller, setBestSeller] = useState(null);
@@ -12,7 +13,6 @@ const Hero = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const dispatch = useDispatch();
-
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
@@ -31,8 +31,6 @@ const Hero = () => {
 
         fetchData();
     }, [dispatch]);
-
-
     return (
         <div className='pb-5'>
             <Helmet>

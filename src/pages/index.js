@@ -29,6 +29,8 @@ import SellerProductListPage from "./sellerPages/SellerProductLists";
 import SellerOrderPage from "./sellerPages/SellerOrders";
 import SellerPage from "./userPages/SellerPage";
 import AboutPage from "./userPages/About";
+import PrivacyPolicy from "./userPages/Privacy";
+import LicensingPage from "./userPages/License";
 
 export {
     Hero,
@@ -61,5 +63,7 @@ export {
     SellerProductListPage,
     SellerOrderPage,
     SellerPage,
-    AboutPage
+    AboutPage,
+    PrivacyPolicy,
+    LicensingPage
 }

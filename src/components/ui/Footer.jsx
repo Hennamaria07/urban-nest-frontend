@@ -5,15 +5,15 @@ const Footer = () => {
     const menuItems = [
         {
             name: "About",
-            href: "/"
+            href: "/about",
         },
         {
             name: "Privacy Policy",
-            href: "/"
+            href: "/privacy-policy",
         },
         {
             name: "Licensing",
-            href: "/"
+            href: "/licensing",
         },
         {
             name: "Contact",
