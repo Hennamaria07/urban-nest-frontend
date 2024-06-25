@@ -56,9 +56,11 @@ const Hero = () => {
                 <div className="text-white text-center container">
                     <h1 className="text-2xl sm:text-4xl font-bold mb-4">Transform Your Space with UrbanNest</h1>
                     <p className="text-sm font-medium sm:text-lg">Find stylish and affordable furniture to make your home cozy and unique</p>
-                    <button className="bg-[#DA2222] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-6">
+                   <Link to={'/shop'}>
+                   <button className="bg-[#DA2222] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-6">
                         Explore Our Collection
                     </button>
+                    </Link>
                 </div>
             </div>
             <section className='container py-5 grid gap-5'>
