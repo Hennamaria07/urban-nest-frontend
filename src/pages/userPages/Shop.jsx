@@ -230,7 +230,7 @@ const ProductPage = () => {
                                     <ProductCard products={products} />
                                 </div>
 
-                                <div className="mt-2 grid gap-5 sm:flex items-center justify-between">
+                                <div className="mt-5 grid gap-5 sm:flex items-center justify-between">
                                     <div>
                                         {`Showing ${start} to ${end} of ${products?.length} results`}
                                     </div>
