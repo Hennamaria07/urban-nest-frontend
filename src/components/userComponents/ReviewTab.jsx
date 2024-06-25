@@ -24,28 +24,30 @@ import { FaStar } from "react-icons/fa"
 import Rating from "react-rating"
 import { useDispatch, useSelector } from "react-redux"
 import * as yup from "yup";
+import { ScrollArea } from "../ui/scroll-area"
+import moment from "moment"
 
 const schema = yup.object().shape({
   review: yup.string().required("Review is required").min(5, "Review must be at least 5 characters long"),
   rating: yup.number().required("Rating is required").min(1, "Rating is required"),
 });
 
-export const ReviewTab = ({productId, product}) => {
+export const ReviewTab = ({ productId, product }) => {
   const { register, handleSubmit, formState: { errors }, control } = useForm({
     resolver: yupResolver(schema),
   });
   const isLoading = useSelector(state => state.product.isLoading);
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const onSubmit = data => {
     const datas = {
       rating: data.rating,
       comment: data.review,
       id: productId
-     }
+    }
     dispatch(postReview(datas))
-    .unwrap()
-    .then(res => toast.success(res.message, {duration: 1000}))
-    .catch(err => toast.error(err, {duration: 1000}))
+      .unwrap()
+      .then(res => toast.success(res.message, { duration: 1000 }))
+      .catch(err => toast.error(err, { duration: 1000 }))
   };
 
   return (
@@ -110,33 +112,40 @@ const dispatch = useDispatch();
             </CardDescription>
           </CardHeader>
           {product?.reviews?.length > 0 ? (
-  product.reviews.map((review) => (
-    <CardContent key={review?._id} className="space-y-2 bg-zinc-100 rounded-md py-2 dark:bg-zinc-900 m-5">
-    <div>
-      <div className="flex gap-5 items-center">
-      <img src={review?.user?.avatar?.url} className="w-10 h-10 rounded-full" alt={review?.user?.firstName} />
-     <div className="grid ">
-     <h6 className="capitalize font-medium">{review?.user?.firstName} {review?.user?.lastName}</h6>
-      <div className="flex items-center">
-        <Rating
-          initialRating={review?.rating}
-          emptySymbol={<AiOutlineStar className="icon" />}
-          fullSymbol={<FaStar className="icon text-orange-500" />}
-          readonly 
-          />
-      </div>
-     </div>
-      </div>
-      
-      <p className="ps-[3.6rem]">{review.comment}</p>
-    </div>
-  </CardContent>
-  ))
-) : (
-  <CardContent className="space-y-2">
-    <p>No reviews yet.</p>
-  </CardContent>
-)}
+            <ScrollArea className="w-full h-[15rem]" >
+              {product.reviews.map((review) => (
+                <CardContent key={review?._id} className="space-y-2 bg-zinc-100 rounded-md py-2 dark:bg-zinc-900 m-5">
+                  <div>
+                    <div className="flex gap-5 items-center justify-between">
+                      <div className="flex gap-5">
+                        <img src={review?.user?.avatar?.url} className="w-10 h-10 rounded-full" alt={review?.user?.firstName} />
+                        <div className="grid ">
+                          <h6 className="capitalize font-medium">{review?.user?.firstName} {review?.user?.lastName}</h6>
+                          <div className="flex items-center">
+                            <Rating
+                              initialRating={review?.rating}
+                              emptySymbol={<AiOutlineStar className="icon" />}
+                              fullSymbol={<FaStar className="icon text-orange-500" />}
+                              readonly
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="sm:flex hidden text-sm">
+                          {moment(review?.createAt).format("DD-MM-YYYY")}
+                        </div>
+                    </div>
+
+                    <p className="ps-[3.6rem] text-justify ">{review.comment}</p>
+                  </div>
+                </CardContent>
+              ))}
+            </ScrollArea>
+          ) : (
+            <CardContent className="space-y-2">
+              <p>No reviews yet.</p>
+            </CardContent>
+          )}
         </Card>
       </TabsContent>
     </Tabs>
