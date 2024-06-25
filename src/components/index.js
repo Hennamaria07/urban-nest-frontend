@@ -31,7 +31,10 @@ import ReEmailVerificationPage from "./authComponents/ReVerification";
 import HeroFooter from "./userComponents/HeroFooter";
 import OurStory from "./userComponents/OurStory";
 import MemberCard from "./userComponents/MemberCard";
-
+import LineGraph from "./userComponents/Graph1";
+import DashbordCard from "./adminComponents/DashBoardCard";
+import AreaGraph from "./userComponents/Graph2";
+import DashBoardLoader from "./adminComponents/DashBoardLoader";
 
 export {
     Login,
@@ -66,5 +69,9 @@ export {
     ReEmailVerificationPage,
     HeroFooter,
     OurStory,
-    MemberCard
+    MemberCard,
+    LineGraph,
+    DashbordCard,
+    AreaGraph,
+    DashBoardLoader
 }

@@ -226,37 +226,37 @@ const ProductPage = () => {
                         </form>
                         {products?.length > 0 ? (
                             <div>
-                            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                            <ProductCard products={products} />
+                                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                                    <ProductCard products={products} />
+                                </div>
+
+                                <div className="mt-2 grid gap-5 sm:flex items-center justify-between">
+                                    <div>
+                                        {`Showing ${start} to ${end} of ${products?.length} results`}
+                                    </div>
+                                    <div className='flex'>
+                                        <Button type="button"
+                                            onClick={handlePreviousPage}
+                                            disabled={page <= 1}
+                                        >
+                                            &larr; Previous
+                                        </Button>
+                                        <Button
+                                            className="bg-transparent text-black dark:text-white border-2 border-orange-500 hover:bg-transparent"
+                                        >
+                                            {page}
+                                        </Button>
+                                        <Button
+                                            type="button"
+                                            onClick={handleNextPage}
+                                            disabled={page >= totalPages}
+                                        >
+                                            Next &rarr;
+                                        </Button>
+                                    </div>
+                                </div>
                             </div>
-                            
-                        <div className="mt-2 grid gap-5 sm:flex items-center justify-between">
-                            <div>
-                                {`Showing ${start} to ${end} of ${products?.length} results`}
-                            </div>
-                            <div className='flex'>
-                                <Button type="button"
-                                    onClick={handlePreviousPage}
-                                    disabled={page <= 1}
-                                >
-                                    &larr; Previous
-                                </Button>
-                                <Button
-                                    className="bg-transparent text-black dark:text-white border-2 border-orange-500 hover:bg-transparent"
-                                >
-                                    {page}
-                                </Button>
-                                <Button
-                                    type="button"
-                                    onClick={handleNextPage}
-                                    disabled={page >= totalPages}
-                                >
-                                    Next &rarr;
-                                </Button>
-                            </div>
-                        </div>
-                        </div>
-                            
+
                         ) : (
                             <EmptyMessage msg={"Products not found"} />
                         )}

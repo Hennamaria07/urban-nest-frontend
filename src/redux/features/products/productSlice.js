@@ -6,6 +6,7 @@ const initialState = {
     isLoading: false,
     isError: false,
     pageIsLoading: false,
+    productLoading: false,
     filterData: null
 }
 
@@ -287,28 +288,34 @@ const productSlice = createSlice(
             builder.addCase(getTopProducts.pending, (state) => {
                 state.pageIsLoading = true;
                 state.isError = false;
+                state.productLoading = true;
             })
             builder.addCase(getTopProducts.fulfilled, (state, action) => {
                 state.pageIsLoading = false;
                 state.isError = false;
+                state.productLoading = false;
             })
             builder.addCase(getTopProducts.rejected, (state, action) => {
                 state.pageIsLoading = false;
                 state.isError = true;
+                state.productLoading = false;
             })
 
             // get latest products
             builder.addCase(getLatestProduct.pending, (state) => {
                 state.pageIsLoading = true;
                 state.isError = false;
+                // state.productLoading = true;
             })
             builder.addCase(getLatestProduct.fulfilled, (state, action) => {
                 state.pageIsLoading = false;
                 state.isError = false;
+                // state.productLoading = false;
             })
             builder.addCase(getLatestProduct.rejected, (state, action) => {
                 state.pageIsLoading = false;
                 state.isError = true;
+                // state.productLoading = false;
             })
 
             // get admin dashboard data

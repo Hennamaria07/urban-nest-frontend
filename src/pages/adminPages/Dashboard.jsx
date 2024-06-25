@@ -1,21 +1,53 @@
-import { Stats } from '@/components'
+import { DashBoardLoader, DashbordCard, LineGraph, Stats } from '@/components';
+import { Card } from '@/components/ui/card';
 import { getAdminData } from '@/redux/features/products/productSlice';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import ErrorMessage from './ErrorMessage';
 
 const AdminDashboard = () => {
     const user = useSelector(state => state.users.user.userInfo);
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
+        setLoading(true);
         dispatch(getAdminData())
             .unwrap()
-            .then(res => setData(res.data))
-            .catch(err => console.log(err))
-    }, [])
+            .then(res => {
+                setData(res.data);
+                setLoading(false);
+                setError(false);
+            })
+            .catch(err => {
+                setLoading(false);
+                setError(true);
+                console.log(err);
+            });
+    }, [dispatch]);
+
+    const barData = [
+        {
+            name: 'Products',
+            uv: data?.totalProduct,
+        },
+        {
+            name: 'Orders',
+            uv: data?.totalOrder,
+        },
+        {
+            name: 'Users',
+            uv: data?.totalUser,
+        },
+        {
+            name: 'Sellers',
+            uv: data?.totalSeller,
+        },
+    ];
+
     return (
         <div className='container py-5'>
             <Helmet>
@@ -25,33 +57,33 @@ const AdminDashboard = () => {
                 <meta name="keywords" content="urban nest admin dashboard, e-commerce operations management, furniture store admin panel, sales tracking, inventory management, performance optimization" />
                 <link rel="canonical" href="https://urban-nest-app.netlify.app/admin/dashboard" />
             </Helmet>
-            <h1
-                className="text-2xl font-semibold pb-5"
-            >
-                Welcome,{' '}
-                <span className='text-orange-500 capitalize'>{user.firstName}</span>{' '}
-                <span className='text-orange-500 capitalize'>{user.lastName}</span>
-            </h1>
-            <div className='grid sm:grid-cols-2 gap-5 lg:grid-cols-4'>
-                <Stats
-                    title={"Total Products"}
-                    data={data?.totalProduct}
-                />
-                <Stats
-                    title={"Total Orders"}
-                    data={data?.totalOrder}
-                />
-                <Stats
-                    title={"Total Users"}
-                    data={data?.totalUser}
-                />
-                <Stats
-                    title={"Total Sellers"}
-                    data={data?.totalSeller}
-                />
-            </div>
+            {error ? (
+                <ErrorMessage />
+            ) : loading ? (
+                <DashBoardLoader skeletonItems={[1, 2, 3, 4]} />
+            ) : (
+                <div>
+                    <h1 className="text-2xl font-semibold pb-5">
+                        Welcome,{' '}
+                        <span className='text-orange-500 capitalize'>{user.firstName}</span>{' '}
+                        <span className='text-orange-500 capitalize'>{user.lastName}</span>
+                    </h1>
+                    <div className='grid sm:grid-cols-2 gap-5 lg:grid-cols-4'>
+                        <Stats title={"Total Products"} data={data?.totalProduct} />
+                        <Stats title={"Total Orders"} data={data?.totalOrder} />
+                        <Stats title={"Total Users"} data={data?.totalUser} />
+                        <Stats title={"Total Sellers"} data={data?.totalSeller} />
+                    </div>
+                    <div className='grid md:grid-cols-2 gap-5 mt-5'>
+                        <Card className="overflow-x-auto grid place-items-center py-5">
+                            <LineGraph data={barData} />
+                        </Card>
+                        <DashbordCard />
+                    </div>
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default AdminDashboard
+export default AdminDashboard;

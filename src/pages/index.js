@@ -65,5 +65,5 @@ export {
     SellerPage,
     AboutPage,
     PrivacyPolicy,
-    LicensingPage
+    LicensingPage,
 }
