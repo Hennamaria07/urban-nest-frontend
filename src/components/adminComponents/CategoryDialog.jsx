@@ -48,7 +48,7 @@ const CategoryDialog = ({ categoryId, name }) => {
             toast.success(res.message, { duration: 1000 });
             setOpen(false);
         })
-        .catch(err => toast.error(err, { duration: 1000 }))
+        .catch(err => toast.error(err, { duration: 2500 }))
     }
 
     return (
