@@ -24,7 +24,7 @@ export const getOrdersForAdmin = createAsyncThunk(
     "get/orders",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await axiosInstance.get("/api/v1/order//admin/orders-list", { withCredentials: true });
+            const response = await axiosInstance.get("/api/v1/order/admin/orders-list", { withCredentials: true });
             return response.data;
         } catch (error) {
             return rejectWithValue(error?.response?.data?.message || "Something went wrong")
