@@ -18,7 +18,7 @@ const DashbordCard = () => {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Recent Sellers</CardTitle>
+                <CardTitle>Recently Joined Sellers</CardTitle>
             </CardHeader>
             <CardContent>
                 <div className='grid gap-5'>

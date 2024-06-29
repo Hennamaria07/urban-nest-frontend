@@ -33,8 +33,10 @@ import OurStory from "./userComponents/OurStory";
 import MemberCard from "./userComponents/MemberCard";
 import LineGraph from "./userComponents/Graph1";
 import DashbordCard from "./adminComponents/DashBoardCard";
-import AreaGraph from "./userComponents/Graph2";
 import DashBoardLoader from "./adminComponents/DashBoardLoader";
+import BarGraph from "./adminComponents/BarGraph";
+import AreaGraph from "./sellerComponents/AreaGraph";
+import SellerBarGraph from "./sellerComponents/BarGraph";
 
 export {
     Login,
@@ -72,6 +74,8 @@ export {
     MemberCard,
     LineGraph,
     DashbordCard,
+    DashBoardLoader,
+    BarGraph,
     AreaGraph,
-    DashBoardLoader
+    SellerBarGraph
 }

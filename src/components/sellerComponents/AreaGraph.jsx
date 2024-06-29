@@ -1,10 +1,10 @@
-import { getTotalSalesByDateForAdmin } from "@/redux/features/orders/orderSlice";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Chart from "react-apexcharts";
+import { getTotalSalesByDateForSeller } from "@/redux/features/orders/orderSlice";
 import { CardTitle } from "../ui/card";
 
-const LineGraph = () => {
+const AreaGraph = () => {
   const [sales, setSales] = useState([]);
   const dispatch = useDispatch();
   const [state, setState] = useState({
@@ -74,7 +74,7 @@ const LineGraph = () => {
   });
 
   useEffect(() => {
-    dispatch(getTotalSalesByDateForAdmin())
+    dispatch(getTotalSalesByDateForSeller())
       .unwrap()
       .then((res) => {
         setSales(res.data);
@@ -118,4 +118,4 @@ const LineGraph = () => {
   );
 };
 
-export default LineGraph;
+export default AreaGraph;

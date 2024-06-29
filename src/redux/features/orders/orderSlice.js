@@ -79,6 +79,17 @@ export const getTotalSalesForAdmin = createAsyncThunk(
         }
     }
 )
+export const getTotalSalesForSeller = createAsyncThunk(
+    "get/sales-seller",
+    async (_, { rejectWithValue }) => {
+        try {
+            const response = await axiosInstance.get("/api/v1/order/seller/total-sales", { withCredentials: true });
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error?.response?.data?.message || "Something went wrong")
+        }
+    }
+)
 
 export const getTotalSalesByDateForAdmin = createAsyncThunk(
     "get/total-sales-admin",
@@ -87,7 +98,18 @@ export const getTotalSalesByDateForAdmin = createAsyncThunk(
             const response = await axiosInstance.get("/api/v1/order/total-sales-date", { withCredentials: true });
             return response.data;
         } catch (error) {
-            return rejectWithValue(error?.response?.data?.message || "Something went wrong")
+            return rejectWithValue(error?.response?.data?.message || error)
+        }
+    }
+)
+export const getTotalSalesByDateForSeller = createAsyncThunk(
+    "get/total-sales-seller",
+    async (_, { rejectWithValue }) => {
+        try {
+            const response = await axiosInstance.get("/api/v1/order/seller/total-sales-date", { withCredentials: true });
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error)
         }
     }
 )
@@ -258,6 +280,36 @@ const orderSlice = createSlice(
             state.orders = action.payload;
           })
           builder.addCase(getTotalSalesByDateForAdmin.rejected, (state, action) => {
+            state.dataIsLoading = false;
+            state.isError = true;
+          })
+
+        // get sales for seller
+        builder.addCase(getTotalSalesForSeller.pending, (state, action) => {
+            state.dataIsLoading = true;
+            state.isError = false;
+          })
+          builder.addCase(getTotalSalesForSeller.fulfilled, (state, action) => {
+            state.dataIsLoading = false;
+            state.isError = false;
+            state.orders = action.payload;
+          })
+          builder.addCase(getTotalSalesForSeller.rejected, (state, action) => {
+            state.dataIsLoading = false;
+            state.isError = true;
+          })
+
+        //   get sales by date for Seller
+        builder.addCase(getTotalSalesByDateForSeller.pending, (state, action) => {
+            state.dataIsLoading = true;
+            state.isError = false;
+          })
+          builder.addCase(getTotalSalesByDateForSeller.fulfilled, (state, action) => {
+            state.dataIsLoading = false;
+            state.isError = false;
+            state.orders = action.payload;
+          })
+          builder.addCase(getTotalSalesByDateForSeller.rejected, (state, action) => {
             state.dataIsLoading = false;
             state.isError = true;
           })

@@ -1,4 +1,4 @@
-import SellerProductTable from '@/components/seller components/SellerProductTable'
+import SellerProductTable from '@/components/sellerComponents/SellerProductTable'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Toaster } from 'react-hot-toast'

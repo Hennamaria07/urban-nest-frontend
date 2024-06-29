@@ -44,7 +44,7 @@ const OrderTable = ({ orders }) => {
 
                   <td className="p-2">{order._id}</td>
                   <td className="p-2">{order.createdAt.substring(0, 10)}</td>
-                  <td className="p-2">$ {order.totalPrice}</td>
+                  <td className="p-2">₹ {order.totalPrice}</td>
 
                   <td className="p-2">
                     {order.isPaid ? (
