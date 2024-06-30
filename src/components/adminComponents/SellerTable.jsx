@@ -95,7 +95,7 @@ const SellerTable = () => {
                                         <DropdownMenuSeparator />
                                         <DropdownMenuGroup>
                                             <AlertDialogTamplate
-                                                description={"This action cannot be undone. This will permanently delete your account and remove your data from our servers."}
+                                                description={"This action cannot be undone. This will permanently delete your account and remove associated products from our servers."}
                                                 qn={"Are you sure you want to delete this user?"}
                                                 action={"Delete"}
                                                 textColor={"text-red-500"}

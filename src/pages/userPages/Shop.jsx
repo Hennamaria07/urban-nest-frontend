@@ -16,8 +16,8 @@ const ProductPage = () => {
     const [checkedCategories, setCheckedCategories] = useState([]);
     const [checkedBrands, setCheckedBrands] = useState([]);
     const [brands, setBrands] = useState([]);
-    const [selectedPriceRange, setSelectedPriceRange] = useState([]); // State to track selected price range
-    const [selectedSortRange, setSelectedSortRange] = useState({}); // State to track selected price range
+    const [selectedPriceRange, setSelectedPriceRange] = useState([]);
+    const [selectedSortRange, setSelectedSortRange] = useState({}); 
     const dispatch = useDispatch();
     const [search, setSearch] = useState('');
     const [totalPages, setTotalPages] = useState(null);
