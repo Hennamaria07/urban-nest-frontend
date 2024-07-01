@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { BreadCrumbThree, OrderDetailTable, TableSkeleton, TextLoading } from '@/components';
 import { getOrderById } from '@/redux/features/orders/orderSlice';
+import moment from 'moment';
 
 const OrderDetail = () => {
     const [order, setOrder] = useState(null);
@@ -112,7 +113,7 @@ const OrderDetail = () => {
                             </p>
 
                             {order.isPaid ? (
-                                <p>Paid on {order.paidAt}</p>
+                                <p>Paid on {moment(order?.paidAt).format('DD-MM-YYYY')}</p>
                             ) : (
                                 <p className='bg-red-500'>Not paid</p>
                             )}
